@@ -10,7 +10,6 @@ import { Collapsible } from "@/components/ui/collapsible";
 import { IconSymbol } from "@/components/ui/icon-symbol";
 import { Fonts } from "@/constants/theme";
 import { useColorScheme } from "@/hooks/use-color-scheme";
-import { useThemeColor } from "@/hooks/use-theme-color";
 
 type ListItem = {
   id: string;
@@ -20,7 +19,6 @@ type ListItem = {
 };
 
 export default function TabTwoScreen() {
-  const backgroundColor = useThemeColor({}, "background");
   const colorScheme = useColorScheme() ?? "light";
 
   const listData = useMemo<ListItem[]>(
@@ -215,6 +213,7 @@ export default function TabTwoScreen() {
       keyExtractor={(item) => item.id}
       getItemType={getItemType}
       contentContainerStyle={styles.listContent}
+      contentInsetAdjustmentBehavior="never"
     />
   );
 }
